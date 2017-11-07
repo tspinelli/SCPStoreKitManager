@@ -150,7 +150,9 @@
 				case SKPaymentTransactionStateFailed:
 				case SKPaymentTransactionStateRestored:
 				{
-					[queue finishTransaction:transaction];
+                    if (transaction.downloads.count == 0 ) {
+                        [queue finishTransaction:transaction];
+                    }
 				   break;
 				}
 				default:
